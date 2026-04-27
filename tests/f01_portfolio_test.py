@@ -48,20 +48,27 @@ def create_portfolio(data):
     if len(projects) > 0:
         strength_tags.append("프로젝트 경험")
 
-    ncs_tags = ["응용SW엔지니어링", "데이터베이스", "서버프로그램구현"]
+    ncs_tag_candidates = ["응용SW엔지니어링", "데이터베이스", "서버프로그램구현"]
+
+    f02_projects = []
+    for project in projects:
+        f02_projects.append({
+            "name": project["name"],
+            "tech_stack": project["tech_stack"]
+        })
 
     result = {
         "portfolio_summary": portfolio_summary,
         "strength_tags": strength_tags,
         "skill_tags": skills,
-        "ncs_tags": ncs_tags,
+        "ncs_tag_candidates": ncs_tag_candidates,
         "next_step_for_f02": {
             "target_job": job,
             "target_region": region,
             "skills": skills,
             "certificates": certificates,
-            "projects": projects,
-            "ncs_tags": ncs_tags
+            "projects": f02_projects,
+            "ncs_tag_candidates": ncs_tag_candidates
         }
     }
 
